@@ -61,12 +61,12 @@ function checkCommand(message) {
 }
 
 function cluckCommand(message) {
-	var randomInt = getRandomInt(quotes.length());
+	var randomInt = getRandomInt(quotes.length);
 	message.channel.send(quotes[randomInt]);
 }
 
 function cuckCommand(message) {
-	var randomInt = getRandomInt(chuckImages.length());
+	var randomInt = getRandomInt(chuckImages.length);
 	message.channel.send(chuckImages[randomInt]);
 }
 
