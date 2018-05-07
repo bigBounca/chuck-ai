@@ -101,7 +101,7 @@ function commandNotFound(message) {
 }
 
 function helpCommand(message) {
-	var channel = message.author.createDM();
+	var channel = message.channel;
 	channel.send("WHAT'S UP YOU KINKY TWINK? I can help you out baby!");
 	channel.send("```-cluck : sends a random Chuck quote\n -cuck : sends a random Chuck meme\n -dick : sends a random picture\n -douglett : posts a link to the douglett website\n -shitpost : shitpost shitpost shitpost\n -beter : does :b:eter approve?\n ```");
 }
