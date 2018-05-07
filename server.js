@@ -98,7 +98,7 @@ function dickCommand(message) {
 function douglettCommand(message) {
 	message.channel.send('https://i.imgur.com/uguR3ux.png');
 	message.channel.send('PLEASE VISIT MY WEBSITE');
-	message.channel.send('https://www.douglett.com');
+	message.channel.send('http://www.douglett.com');
 }
 
 function commandNotFound(message) {
