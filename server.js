@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-client.login("vAKD3jRrUdTpkdZlzjdZX9Hg3hobbAlp");
 
 // 'client.on('message')' commands are triggered when the
 // specified message is read in a text channel that the bot is in.
@@ -101,3 +100,6 @@ function beterCommand(message) {
 function getRandomInt(max) {
 	return Math.floor(Math.random() * Math.floor(max))
 }
+
+
+client.login(process.env.BOT_TOKEN);
