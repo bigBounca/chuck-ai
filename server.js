@@ -55,7 +55,7 @@ function checkCommand(message) {
 		case ":b:eter":
 			beterCommand(message);
 			break;
-		case default:
+		default:
 			commandNotFound(message);
 	}
 }
