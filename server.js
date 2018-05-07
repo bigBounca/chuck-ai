@@ -86,8 +86,13 @@ function cuckCommand(message) {
 
 function dickCommand(message) {
 	var randomInt = getRandomInt(dicks.length);
-	message.channel.send("I like dick, no homo");
-	message.channel.send(dicks[randomInt]);
+	var channel = message.channel;
+	if (channel.nsfw) {
+		channel.send("I like dick, no homo");
+		channel.send(dicks[randomInt]);
+	} else {
+		channel.send("Not in here silly! ^-^");
+	}
 }
 
 function douglettCommand(message) {
