@@ -85,7 +85,7 @@ function cuckCommand(message) {
 }
 
 function dickCommand(message) {
-	var randomInt = randomInt(dicks.length);
+	var randomInt = getRandomInt(dicks.length);
 	message.channel.send("I like dick, no homo");
 	message.channel.send(dicks[randomInt]);
 }
