@@ -26,7 +26,7 @@ client.on('message', message => {
 });
 
 function checkActivateCharacter(message) {
-	var firstCharacter = message.charAt(0);
+	var firstCharacter = message.content.charAt(0);
 	
 	if(firstCharacter == activateCharacter) {
 		return true;
@@ -35,7 +35,7 @@ function checkActivateCharacter(message) {
 }
 
 function checkCommand(message) {
-	var command = message.slice(1);
+	var command = message.content.slice(1);
 	switch(command) {
 		case "cluck":
 			cluckCommand(message);
