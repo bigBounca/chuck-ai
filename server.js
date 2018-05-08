@@ -69,9 +69,16 @@ function checkCommand(message) {
 		case "help":
 			helpCommand(message);
 			break;
+		case "assemble":
+			assembleCommand(message);
 		default:
 			commandNotFound(message);
 	}
+}
+
+function assembleCommand(message) {
+	message.channel.send("@everyone ALL MEMES ASSEMBLE AT ONCE!!");
+	cuckCommand(message);
 }
 
 function cluckCommand(message) {
