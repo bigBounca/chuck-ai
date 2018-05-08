@@ -71,6 +71,7 @@ function checkCommand(message) {
 			break;
 		case "assemble":
 			assembleCommand(message);
+			break;
 		default:
 			commandNotFound(message);
 	}
