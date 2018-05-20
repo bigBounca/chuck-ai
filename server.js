@@ -72,8 +72,6 @@ function checkCommand(message) {
 		case "assemble":
 			assembleCommand(message);
 			break;
-		default:
-			commandNotFound(message);
 	}
 }
 
@@ -109,14 +107,15 @@ function douglettCommand(message) {
 	message.channel.send('http://www.douglett.com');
 }
 
-function commandNotFound(message) {
-	message.channel.send("That's not a command you slut");
-}
-
 function helpCommand(message) {
 	var channel = message.channel;
-	channel.send("WHAT'S UP YOU KINKY TWINK? I can help you out baby!");
-	channel.send("```-cluck : sends a random Chuck quote\n -cuck : sends a random Chuck meme\n -dick : sends a random picture\n -douglett : posts a link to the douglett website\n -shitpost : shitpost shitpost shitpost\n -beter : does :b:eter approve?\n ```");
+	var author = message.author;
+
+	author.createDM().then(dmChannel -> {
+		dmChannel.send("```-cluck : sends a random Chuck quote\n -cuck : sends a random Chuck meme\n -dick : sends a random picture\n -douglett : posts a link to the douglett website\n -shitpost : shitpost shitpost shitpost\n -beter : does :b:eter approve?\n ```");
+	}).catch(err);
+
+	channel.send("@" + author.username + " check your DM's you sexy twink! ;^)");
 }
 
 function shitpost(message) {
