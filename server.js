@@ -111,9 +111,9 @@ function helpCommand(message) {
 	var channel = message.channel;
 	var author = message.author;
 
-	author.createDM().then((dmChannel,err) => {
+	author.createDM().then((dmChannel) => {
 		dmChannel.send("```-cluck : sends a random Chuck quote\n -cuck : sends a random Chuck meme\n -dick : sends a random picture\n -douglett : posts a link to the douglett website\n -shitpost : shitpost shitpost shitpost\n -beter : does :b:eter approve?\n ```");
-	}).catch(err);
+	});
 
 	channel.send("@" + author.username + " check your DM's you sexy twink! ;^)");
 }
