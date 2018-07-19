@@ -7,7 +7,7 @@ const client = new Discord.Client();
 var activateCharacter = '-';
 var chuckImages = ['https://i.imgur.com/zyma58k.jpg', 'https://i.imgur.com/47srahM.jpg', 'https://i.imgur.com/tFf1m5m.jpg', 'https://i.imgur.com/Zqrhgpe.jpg',
 'https://i.imgur.com/GEkFIK1.jpg', 'https://i.imgur.com/anGKpMG.jpg', 'https://i.imgur.com/VFI63Dk.jpg',
-'https://i.imgur.com/UK9nB1o.gifv', 'https://i.imgur.com/bDKr85K.jpg', 'https://i.imgur.com/G8OgvgC.jpg', 'https://i.imgur.com/OLomuTe.png'];
+'https://i.imgur.com/UK9nB1o.gifv', 'https://i.imgur.com/bDKr85K.jpg', 'https://i.imgur.com/G8OgvgC.jpg', 'https://i.imgur.com/OLomuTe.png', 'https://imgur.com/aB4KoPF'];
 var quotes = ["Say goodnight",
 "my coworker is a smite arena pro",
 "You guys send anime girls with dicks all the time, real traps are no different",
@@ -28,6 +28,7 @@ var dicks = ["https://zuckablatt.tumblr.com/image/173588167083",
 							"https://i.imgur.com/46VOoz3.gifv",
 							"https://i.imgur.com/fVNOnLJ.jpg"
 						];
+var shitposts = ['https://imgur.com/a/USnQuic', 'Fuck you!', 'https://cdn.nekos.life/neko/neko_031.jpg', 'reee'];
 
 
 client.on('message', message => {
@@ -119,7 +120,23 @@ function helpCommand(message) {
 }
 
 function shitpost(message) {
-	message.channel.send(':poop:');
+	var randomInt = getRandomInt(2);
+	switch(randomInt) {
+		case 0:
+			cuckCommand(message);
+			break;
+		case 1:
+			cluckCommand(message);
+			break;
+		case 2:
+			shitpostCommand(message);
+			break;
+	}
+}
+
+function shitpostCommand(message) {
+	var random = getRandomInt(shitposts.length);
+	message.channel.send(shitposts[random]);
 }
 
 function beterCommand(message) {
