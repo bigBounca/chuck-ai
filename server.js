@@ -120,6 +120,7 @@ function helpCommand(message) {
 }
 
 function shitpost(message) {
+	/*
 	var randomInt = getRandomInt(2);
 	switch(randomInt) {
 		case 0:
@@ -132,6 +133,8 @@ function shitpost(message) {
 			shitpostCommand(message);
 			break;
 	}
+	*/
+	shitpostCommand(message);
 }
 
 function shitpostCommand(message) {
