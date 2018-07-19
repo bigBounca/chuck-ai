@@ -155,5 +155,4 @@ function getRandomInt(max) {
 	return Math.floor(Math.random() * Math.floor(max))
 }
 
-
 client.login(process.env.BOT_TOKEN);
