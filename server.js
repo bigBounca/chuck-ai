@@ -15,7 +15,8 @@ var quotes = ["Say goodnight",
 "I'M NOT GAY I SWEAR!!!",
 "I'm being ironic cmon guys",
 "the recruiter promised me I'd be working cyber security", 
-"Me and some guys from my dorm are gonna watch hentai together, want to join us?"];
+"Me and some guys from my dorm are gonna watch hentai together, want to join us?",
+"$80 by the way!"];
 var dicks = ["https://zuckablatt.tumblr.com/image/173588167083",
 							"https://78.media.tumblr.com/89a4cd33265a9b781ca67c347c12ec68/tumblr_p4y202E3RW1vsi5teo1_1280.jpg",
 							"https://78.media.tumblr.com/7d9d5ea7f9b7497b6bcfb366128dfc97/tumblr_ost5gmRUVd1wu8d09o4_1280.png",
