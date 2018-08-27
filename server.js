@@ -150,10 +150,12 @@ function beterCommand(message) {
 
 function dankMeme(message) {
 	var d100 = getRandomInt(100);
-	if (d100 = 19) message.author.createDM().then((dmChannel) => {
-		dmChannel.send("Hey FUCKER, say GOODNIGHT!");
-		dmChannel.send("https://i.ytimg.com/vi/AZYErjxUqyE/hqdefault.jpg");
-	});
+	if (d100 = 19) {
+		message.author.createDM().then((dmChannel) => {
+			dmChannel.send("Hey FUCKER, say GOODNIGHT!");
+			dmChannel.send("https://i.ytimg.com/vi/AZYErjxUqyE/hqdefault.jpg");
+		});
+	} 
 }
 
 function getRandomInt(max) {
