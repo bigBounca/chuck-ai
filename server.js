@@ -121,7 +121,6 @@ function playCommand(message) {
 		});
 	})
 	.catch((error) => {
-		message.reply('FUCK');
 		console.log(error);
 	});
 	else message.reply('You need to join a voice channel first, silly!');
