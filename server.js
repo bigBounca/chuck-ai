@@ -1,144 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-client.login(process.env.BOT_TOKEN);
 
 var activateCharacter = '-';
-
-
-client.on('message', message => {
-	if (checkActivateCharacter(message)) checkCommand(message);
-});
-
-function checkActivateCharacter(message) {
-	var firstCharacter = message.content.charAt(0);
-	if(firstCharacter == activateCharacter) return true; else return false;
-}
-
-function checkCommand(message) {
-	var command = message.content.slice(1);
-	switch(command) {
-		case "cluck":
-			cluckCommand(message);
-			break;
-		case "cuck":
-			cuckCommand(message);
-			break;
-		case "dick":
-			dickCommand(message);
-			break;
-		case "douglett":
-			douglettCommand(message);
-			break;
-		case "shitpost":
-			shitpost(message);
-			break;
-		case "beter":
-			beterCommand(message);
-			break;
-		case "help":
-			helpCommand(message);
-			break;
-		case "assemble":
-			assembleCommand(message);
-			break;
-		case "play":
-			playCommand(message);
-			break;
-	}
-}
-
-function assembleCommand(message) {
-	message.channel.send("@everyone ALL MEMES ASSEMBLE AT ONCE!!");
-	cuckCommand(message);
-}
-
-function cluckCommand(message) {
-	var randomInt = getRandomInt(quotes.length);
-	message.channel.send(quotes[randomInt]);
-}
-
-function cuckCommand(message) {
-	var randomInt = getRandomInt(chuckImages.length);
-	message.channel.send(chuckImages[randomInt]);
-}
-
-function dickCommand(message) {
-	var randomInt = getRandomInt(dicks.length);
-	var channel = message.channel;
-	if (channel.nsfw) {
-		channel.send("I like dick, no homo");
-		channel.send(dicks[randomInt]);
-	} else {
-		channel.send("Not in here silly! ^-^");
-	}
-}
-
-function douglettCommand(message) {
-	message.channel.send('https://i.imgur.com/uguR3ux.png');
-	message.channel.send('PLEASE VISIT MY WEBSITE');
-	message.channel.send('http://www.douglett.com');
-}
-
-function helpCommand(message) {
-	var channel = message.channel;
-	var author = message.author;
-
-	author.createDM().then((dmChannel) => {
-		dmChannel.send("```-cluck : sends a random Chuck quote\n " +
-			"-cuck : sends a random Chuck meme\n -dick : sends a random picture\n " + 
-			"-douglett : posts a link to the douglett website\n " +
-			"-shitpost : shitpost shitpost shitpost\n -beter : does :b:eter approve?\n ```");
-	});
-	channel.send("@" + author.username + " check your DM's you sexy twink! ;^)");
-}
-
-function shitpost(message) {
-	shitpostCommand(message);
-	dankMeme(message);
-}
-
-function shitpostCommand(message) {
-	var random = getRandomInt(shitposts.length);
-	if(message.channel.nsfw)
-	dickCommand(message);
-	else message.channel.send(shitposts[random]);
-}
-
-function beterCommand(message) {
-	if(getRandomInt(2)) message.channel.send('https://i.imgur.com/lEz4HPQ.jpg'); 
-	else message.channel.send('https://i.imgur.com/Nt4uia9.jpg');
-}
-
-function playCommand(message) {
-	if (message.member.voiceChannel) message.member.voiceChannel.join()
-	.then(connection => {
-		message.reply("I guess I'll get on");
-		var dispacher = connection.playArbitraryInput(playArray[getRandomInt(playArray.length)]);
-		dispacher.on('end', () => {
-			connection.disconnect();
-		});
-	});
-	else message.reply('You need to join a voice channel first, silly!');
-}
-
-function dankMeme(message) {
-	if (getRandomInt(100) === 19) 
-	message.author.createDM().then((dmChannel) => {
-		dmChannel.send("Hey FUCKER, say GOODNIGHT!");
-		dmChannel.send("https://i.ytimg.com/vi/AZYErjxUqyE/hqdefault.jpg");
-	}); 
-}
-
-function getRandomInt(max) {
-	return Math.floor(Math.random() * Math.floor(max))
-}
-
-
-const playArray = ['https://www.youtube.com/watch?v=4sx3KGrNWtw',
-"https://www.youtube.com/watch?time_continue=39&v=p2spXLwZ6XI",
-"https://www.youtube.com/watch?v=VKhpE-oNoGY",
-"https://www.youtube.com/watch?v=VKhpE-oNoGY",
-"https://www.youtube.com/watch?time_continue=5&v=Xc0EzLc7NZg"];
 const chuckImages = ['https://i.imgur.com/zyma58k.jpg', 
 'https://i.imgur.com/47srahM.jpg', 
 'https://i.imgur.com/tFf1m5m.jpg', 
@@ -191,7 +54,7 @@ const dicks = ["https://zuckablatt.tumblr.com/image/173588167083",
 "https://78.media.tumblr.com/1df623046687b49d9899552e4f7eb925/tumblr_paa74bAFuV1u4rf7ao10_640.jpg",
 "https://zuckablatt.tumblr.com/image/174689676718",
 "https://zuckablatt.tumblr.com/image/172753262198"];
-const shitposts = ['https://imgur.com/a/USnQuic', 
+var shitposts = ['https://imgur.com/a/USnQuic', 
 'Fuck you!', 
 'https://cdn.nekos.life/neko/neko_031.jpg', 
 'reee',
@@ -284,3 +147,115 @@ const shitposts = ['https://imgur.com/a/USnQuic',
 'https://i.imgur.com/T7qJtIH.png',
 'https://i.imgur.com/JlSoA2l.png',
 'https://i.imgur.com/SoZ8vlx.jpg'];
+
+client.on('message', message => {
+	if (checkActivateCharacter(message)) checkCommand(message);
+});
+
+function checkActivateCharacter(message) {
+	var firstCharacter = message.content.charAt(0);
+	if(firstCharacter == activateCharacter) return true; else return false;
+}
+
+function checkCommand(message) {
+	var command = message.content.slice(1);
+	switch(command) {
+		case "cluck":
+			cluckCommand(message);
+			break;
+		case "cuck":
+			cuckCommand(message);
+			break;
+		case "dick":
+			dickCommand(message);
+			break;
+		case "douglett":
+			douglettCommand(message);
+			break;
+		case "shitpost":
+			shitpost(message);
+			break;
+		case "beter":
+			beterCommand(message);
+			break;
+		case "help":
+			helpCommand(message);
+			break;
+		case "assemble":
+			assembleCommand(message);
+			break;
+	}
+}
+
+function assembleCommand(message) {
+	message.channel.send("@everyone ALL MEMES ASSEMBLE AT ONCE!!");
+	cuckCommand(message);
+}
+
+function cluckCommand(message) {
+	var randomInt = getRandomInt(quotes.length);
+	message.channel.send(quotes[randomInt]);
+}
+
+function cuckCommand(message) {
+	var randomInt = getRandomInt(chuckImages.length);
+	message.channel.send(chuckImages[randomInt]);
+}
+
+function dickCommand(message) {
+	var randomInt = getRandomInt(dicks.length);
+	var channel = message.channel;
+	if (channel.nsfw) {
+		channel.send("I like dick, no homo");
+		channel.send(dicks[randomInt]);
+	} else {
+		channel.send("Not in here silly! ^-^");
+	}
+}
+
+function douglettCommand(message) {
+	message.channel.send('https://i.imgur.com/uguR3ux.png');
+	message.channel.send('PLEASE VISIT MY WEBSITE');
+	message.channel.send('http://www.douglett.com');
+}
+
+function helpCommand(message) {
+	var channel = message.channel;
+	var author = message.author;
+
+	author.createDM().then((dmChannel) => {
+		dmChannel.send("```-cluck : sends a random Chuck quote\n -cuck : sends a random Chuck meme\n -dick : sends a random picture\n -douglett : posts a link to the douglett website\n -shitpost : shitpost shitpost shitpost\n -beter : does :b:eter approve?\n ```");
+	});
+	channel.send("@" + author.username + " check your DM's you sexy twink! ;^)");
+}
+
+function shitpost(message) {
+	shitpostCommand(message);
+	dankMeme(message);
+}
+
+function shitpostCommand(message) {
+	var random = getRandomInt(shitposts.length);
+	if(message.channel.nsfw)
+	dickCommand(message);
+	else message.channel.send(shitposts[random]);
+}
+
+function beterCommand(message) {
+	if(getRandomInt(2)) message.channel.send('https://i.imgur.com/lEz4HPQ.jpg'); 
+	else message.channel.send('https://i.imgur.com/Nt4uia9.jpg');
+}
+
+function dankMeme(message) {
+	if (getRandomInt(100) === 19) 
+	message.author.createDM().then((dmChannel) => {
+		dmChannel.send("Hey FUCKER, say GOODNIGHT!");
+		dmChannel.send("https://i.ytimg.com/vi/AZYErjxUqyE/hqdefault.jpg");
+	}); 
+}
+
+function getRandomInt(max) {
+	return Math.floor(Math.random() * Math.floor(max))
+}
+
+client.login(process.env.BOT_TOKEN);
