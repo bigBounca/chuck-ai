@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-//process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 client.login(process.env.BOT_TOKEN);
 
 
@@ -42,9 +41,6 @@ function checkCommand(message) {
 			break;
 		case "assemble":
 			assembleCommand(message);
-			break;
-		case "play":
-			playCommand(message);
 			break;
 	}
 }
@@ -111,23 +107,8 @@ function beterCommand(message) {
 	else message.channel.send('https://i.imgur.com/Nt4uia9.jpg');
 }
 
-function playCommand(message) {
-	if (message.member.voiceChannel) message.member.voiceChannel.join()
-	.then(connection => {
-		message.reply("I guess I'll get on");
-		var dispacher = connection.playArbitraryInput(playArray[getRandomInt(playArray.length)]);
-		dispacher.on('end', () => {
-			connection.disconnect();
-		});
-	})
-	.catch((error) => {
-		console.log(error);
-	});
-	else message.reply('You need to join a voice channel first, silly!');
-}
-
 function dankMeme(message) {
-	if (getRandomInt(100) === 19) 
+	if (getRandomInt(100) == 19) 
 	message.author.createDM().then((dmChannel) => {
 		dmChannel.send("Hey FUCKER, say GOODNIGHT!");
 		dmChannel.send("https://i.ytimg.com/vi/AZYErjxUqyE/hqdefault.jpg");
@@ -138,12 +119,6 @@ function getRandomInt(max) {
 	return Math.floor(Math.random() * Math.floor(max))
 }
 
-
-const playArray = ['https://www.youtube.com/watch?v=4sx3KGrNWtw',
-"https://www.youtube.com/watch?time_continue=39&v=p2spXLwZ6XI",
-"https://www.youtube.com/watch?v=VKhpE-oNoGY",
-"https://www.youtube.com/watch?v=VKhpE-oNoGY",
-"https://www.youtube.com/watch?time_continue=5&v=Xc0EzLc7NZg"];
 const chuckImages = ['https://i.imgur.com/zyma58k.jpg', 
 'https://i.imgur.com/47srahM.jpg', 
 'https://i.imgur.com/tFf1m5m.jpg', 
