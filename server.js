@@ -119,6 +119,9 @@ function playCommand(message) {
 		dispacher.on('end', () => {
 			connection.disconnect();
 		});
+	})
+	.catch(() => {
+		message.reply('FUCK');
 	});
 	else message.reply('You need to join a voice channel first, silly!');
 }
