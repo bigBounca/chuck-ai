@@ -1,6 +1,8 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 client.login(process.env.BOT_TOKEN);
+
 
 var activateCharacter = '-';
 
