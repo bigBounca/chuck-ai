@@ -127,7 +127,7 @@ function playCommand(message) {
 }
 
 function dankMeme(message) {
-	if (getRandomInt(100) === 19) 
+	if (getRandomInt(100) == 19) 
 	message.author.createDM().then((dmChannel) => {
 		dmChannel.send("Hey FUCKER, say GOODNIGHT!");
 		dmChannel.send("https://i.ytimg.com/vi/AZYErjxUqyE/hqdefault.jpg");
