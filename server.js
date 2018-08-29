@@ -33,7 +33,27 @@ const dicks = ["https://zuckablatt.tumblr.com/image/173588167083",
 "https://i.redditmedia.com/L0povQoMQmUWbqt4WV6VqydLLckkKrgOUnKxDhK2AL8.jpg?w=543&s=82dda298950f592a1ad5ef42bdef63c0",
 "https://i.imgur.com/PIXhs0j.gifv",
 "https://i.imgur.com/46VOoz3.gifv",
-"https://i.imgur.com/fVNOnLJ.jpg"];
+"https://i.imgur.com/fVNOnLJ.jpg",
+"https://i.redd.it/v3o29p30cti11.jpg",
+"https://i.imgur.com/5jO5n1b.jpg",
+"https://i.imgur.com/UbEfBb0.jpg",
+"https://zuckablatt.tumblr.com/image/177127088638",
+"https://78.media.tumblr.com/8b62579b15bbba0a14c2483d23ce9e44/tumblr_pcuuo3dVIX1wk56dho1_1280.jpg",
+"https://78.media.tumblr.com/74d60193a1688a54d737426215a57ea8/tumblr_p8ut691meE1wo17h4o1_1280.png",
+"https://zuckablatt.tumblr.com/image/175911746833",
+"https://zuckablatt.tumblr.com/image/175646757023",
+"https://78.media.tumblr.com/b9df20f58406fb5f2bce08a1a4e54c62/tumblr_paa74bAFuV1u4rf7ao1_640.png",
+"https://78.media.tumblr.com/c8c25fdb0ba2f8508f6a93e930aa0676/tumblr_paa74bAFuV1u4rf7ao2_500.jpg",
+"https://78.media.tumblr.com/7cecd2009eb56b315d47852e7e7d01e5/tumblr_paa74bAFuV1u4rf7ao3_500.jpg",
+"https://78.media.tumblr.com/e4150020fdf058b0770d4b55c40a7725/tumblr_paa74bAFuV1u4rf7ao4_640.jpg",
+"https://78.media.tumblr.com/05c499c448c0260327f588cfcdff876b/tumblr_paa74bAFuV1u4rf7ao5_640.jpg",
+"https://78.media.tumblr.com/6aa2faf5b35319681c24647ec6010d11/tumblr_paa74bAFuV1u4rf7ao6_640.jpg",
+"https://78.media.tumblr.com/a874744343a20d58905c62d4b2c874e5/tumblr_paa74bAFuV1u4rf7ao7_540.jpg",
+"https://78.media.tumblr.com/345a7cee1ffc2d6a1bcca000e93bd1b6/tumblr_paa74bAFuV1u4rf7ao8_500.jpg",
+"https://78.media.tumblr.com/e55347afd1e15e5bb0e802662c953065/tumblr_paa74bAFuV1u4rf7ao9_500.jpg",
+"https://78.media.tumblr.com/1df623046687b49d9899552e4f7eb925/tumblr_paa74bAFuV1u4rf7ao10_640.jpg",
+"https://zuckablatt.tumblr.com/image/174689676718",
+"https://zuckablatt.tumblr.com/image/172753262198"];
 var shitposts = ['https://imgur.com/a/USnQuic', 
 'Fuck you!', 
 'https://cdn.nekos.life/neko/neko_031.jpg', 
@@ -217,7 +237,7 @@ function shitpost(message) {
 function shitpostCommand(message) {
 	var random = getRandomInt(shitposts.length);
 	if(message.channel.nsfw)
-	message.channel.send("+rule34 trap");
+	dickCommand(message);
 	else message.channel.send(shitposts[random]);
 }
 
