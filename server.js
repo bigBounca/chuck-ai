@@ -87,8 +87,46 @@ var shitposts = ['https://imgur.com/a/USnQuic',
 'https://imgur.com/qCLav1f',
 'https://imgur.com/oqr6PbL',
 'https://imgur.com/Ul6pHMk',
-'https://imgur.com/nHdme7a'];
-
+'https://imgur.com/nHdme7a',
+'https://i.imgur.com/k44Wpf4.jpg',
+'https://i.imgur.com/0M6ZjTC.png',
+'https://i.imgur.com/LbTtsn5.png',
+'https://i.imgur.com/beUNB0n.jpg',
+'https://i.imgur.com/tBWgiOd.jpg',
+'https://i.imgur.com/12k7XrB.jpg',
+'https://i.imgur.com/aB4KoPF.png',
+'https://i.imgur.com/HFUd4Ha.gifv',
+'https://i.imgur.com/DV3K7NV.gifv',
+'https://i.imgur.com/gAHPZ7c.gifv',
+'https://i.imgur.com/GaU4f4I.gifv',
+'https://i.imgur.com/IEqf52Y.gifv',
+'https://i.imgur.com/md6rhUb.gifv',
+'https://i.imgur.com/JEnc5P0.gifv',
+'https://i.imgur.com/NLnJDGN.gifv',
+'https://i.imgur.com/DeofTEW.gifv',
+'https://i.imgur.com/xtPPlUj.gifv',
+'https://i.imgur.com/EZoSAE3.jpg',
+'https://i.imgur.com/TPiUHtH.png',
+'https://i.imgur.com/VmgenoL.jpg',
+'https://i.imgur.com/XsaWBg1.jpg',
+'https://i.imgur.com/TGmDesy.jpg',
+'https://i.imgur.com/zXj3Jda.png',
+'https://i.imgur.com/nOI67JZ.png',
+'https://i.imgur.com/GbanG0h.png',
+'https://i.imgur.com/aKw2X4Z.jpg',
+'https://i.imgur.com/NINoJyQ.png',
+'https://i.imgur.com/PmDKMeT.png',
+'https://i.imgur.com/qln2lxn.png',
+'https://i.imgur.com/ceFnBgI.png',
+'https://i.imgur.com/RAv7aMe.png',
+'https://i.imgur.com/R2XcqSW.png',
+'https://i.imgur.com/FselZbn.png',
+'https://i.imgur.com/3A18qLl.png',
+'https://i.imgur.com/Hufn2Pb.png',
+'https://i.imgur.com/Ep2uLhT.png',
+'https://i.imgur.com/T7qJtIH.png',
+'https://i.imgur.com/JlSoA2l.png',
+'https://i.imgur.com/SoZ8vlx.jpg'];
 
 client.on('message', message => {
 	if (checkActivateCharacter(message)) checkCommand(message);
@@ -168,32 +206,19 @@ function helpCommand(message) {
 	author.createDM().then((dmChannel) => {
 		dmChannel.send("```-cluck : sends a random Chuck quote\n -cuck : sends a random Chuck meme\n -dick : sends a random picture\n -douglett : posts a link to the douglett website\n -shitpost : shitpost shitpost shitpost\n -beter : does :b:eter approve?\n ```");
 	});
-
 	channel.send("@" + author.username + " check your DM's you sexy twink! ;^)");
 }
 
 function shitpost(message) {
-	/*
-	var randomInt = getRandomInt(2);
-	switch(randomInt) {
-		case 0:
-			cuckCommand(message);
-			break;
-		case 1:
-			cluckCommand(message);
-			break;
-		case 2:
-			shitpostCommand(message);
-			break;
-	}
-	*/
 	shitpostCommand(message);
 	dankMeme(message);
 }
 
 function shitpostCommand(message) {
 	var random = getRandomInt(shitposts.length);
-	message.channel.send(shitposts[random]);
+	if(message.channel.nsfw)
+	message.channel.send("+rule34 trap");
+	else message.channel.send(shitposts[random]);
 }
 
 function beterCommand(message) {
@@ -202,13 +227,11 @@ function beterCommand(message) {
 }
 
 function dankMeme(message) {
-	var d100 = getRandomInt(100);
-	if (d100 === 19) {
-		message.author.createDM().then((dmChannel) => {
-			dmChannel.send("Hey FUCKER, say GOODNIGHT!");
-			dmChannel.send("https://i.ytimg.com/vi/AZYErjxUqyE/hqdefault.jpg");
-		});
-	} 
+	if (getRandomInt(100) === 19) 
+	message.author.createDM().then((dmChannel) => {
+		dmChannel.send("Hey FUCKER, say GOODNIGHT!");
+		dmChannel.send("https://i.ytimg.com/vi/AZYErjxUqyE/hqdefault.jpg");
+	}); 
 }
 
 function getRandomInt(max) {
