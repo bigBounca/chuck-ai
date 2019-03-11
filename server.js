@@ -113,8 +113,8 @@ function beterCommand(message) {
 }
 
 function bruhCommand(message) {
-	if (message.member.voice.channel) {
-		message.member.voice.channel.join().then(connection => {
+	if (message.member.voiceChannel) {
+		message.member.voiceChannel.join().then(connection => {
 			const dispatcher = connection.play(
 				ytdl('https://www.youtube.com/watch?v=2ZIpFytCSVc',
 				{ filter: 'audioonly' })
