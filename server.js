@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const ytdl = require('ytdl-core');
 //process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 client.login(process.env.BOT_TOKEN);
 
@@ -43,8 +44,8 @@ function checkCommand(message) {
 		case "assemble":
 			assembleCommand(message);
 			break;
-		case "play":
-			playCommand(message);
+		case "bruh":
+			bruhCommand(message);
 			break;
 	}
 }
@@ -88,8 +89,8 @@ function helpCommand(message) {
 	author.createDM().then((dmChannel) => {
 		dmChannel.send("```-cluck : sends a random Chuck quote\n " +
 			"-cuck : sends a random Chuck meme\n -dick : sends a random picture\n " + 
-			"-douglett : posts a link to the douglett website\n " +
-			"-shitpost : shitpost shitpost shitpost\n -beter : does :b:eter approve?\n ```");
+			"-douglett : posts a link to the douglett website\n -bruh : bruh\n" +
+			"-shitpost : shitpost shitpost shitpost\n -beter : does :b:eter approve?\n```");
 	});
 	channel.send("@" + author.username + " check your DM's you sexy twink! ;^)");
 }
@@ -111,19 +112,20 @@ function beterCommand(message) {
 	else message.channel.send('https://i.imgur.com/Nt4uia9.jpg');
 }
 
-function playCommand(message) {
-	if (message.member.voiceChannel) message.member.voiceChannel.join()
-	.then(connection => {
-		message.reply("I guess I'll get on");
-		var dispacher = connection.playArbitraryInput(playArray[getRandomInt(playArray.length)]);
-		dispacher.on('end', () => {
-			connection.disconnect();
+function bruhCommand(message) {
+	if (message.member.voice.channel) {
+		message.member.voice.channel.join().then(connection => {
+			const dispatcher = connection.play(
+				ytdl('https://www.youtube.com/watch?v=2ZIpFytCSVc',
+				{ filter: 'audioonly' })
+			);
+			dispatcher.on('finish', () => {
+				dispatcher.destroy();
+			});
 		});
-	})
-	.catch((error) => {
-		console.log(error);
-	});
-	else message.reply('You need to join a voice channel first, silly!');
+	} else {
+		message.reply('Join voice pussy!');
+	}
 }
 
 function dankMeme(message) {
