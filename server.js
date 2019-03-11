@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const ytdl = require('ytdl-core');
+//process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 client.login(process.env.BOT_TOKEN);
 
 
@@ -41,6 +43,9 @@ function checkCommand(message) {
 			break;
 		case "assemble":
 			assembleCommand(message);
+			break;
+		case "bruh":
+			bruhCommand(message);
 			break;
 	}
 }
@@ -84,8 +89,8 @@ function helpCommand(message) {
 	author.createDM().then((dmChannel) => {
 		dmChannel.send("```-cluck : sends a random Chuck quote\n " +
 			"-cuck : sends a random Chuck meme\n -dick : sends a random picture\n " + 
-			"-douglett : posts a link to the douglett website\n " +
-			"-shitpost : shitpost shitpost shitpost\n -beter : does :b:eter approve?\n ```");
+			"-douglett : posts a link to the douglett website\n -bruh : bruh\n" +
+			"-shitpost : shitpost shitpost shitpost\n -beter : does :b:eter approve?\n```");
 	});
 	channel.send("@" + author.username + " check your DM's you sexy twink! ;^)");
 }
@@ -107,6 +112,22 @@ function beterCommand(message) {
 	else message.channel.send('https://i.imgur.com/Nt4uia9.jpg');
 }
 
+function bruhCommand(message) {
+	if (message.member.voice.channel) {
+		message.member.voice.channel.join().then(connection => {
+			const dispatcher = connection.play(
+				ytdl('https://www.youtube.com/watch?v=2ZIpFytCSVc',
+				{ filter: 'audioonly' })
+			);
+			dispatcher.on('finish', () => {
+				dispatcher.destroy();
+			});
+		});
+	} else {
+		message.reply('Join voice pussy!');
+	}
+}
+
 function dankMeme(message) {
 	if (getRandomInt(100) == 19) 
 	message.author.createDM().then((dmChannel) => {
@@ -119,6 +140,12 @@ function getRandomInt(max) {
 	return Math.floor(Math.random() * Math.floor(max))
 }
 
+
+const playArray = ['https://www.youtube.com/watch?v=4sx3KGrNWtw',
+"https://www.youtube.com/watch?time_continue=39&v=p2spXLwZ6XI",
+"https://www.youtube.com/watch?v=VKhpE-oNoGY",
+"https://www.youtube.com/watch?v=VKhpE-oNoGY",
+"https://www.youtube.com/watch?time_continue=5&v=Xc0EzLc7NZg"];
 const chuckImages = ['https://i.imgur.com/zyma58k.jpg', 
 'https://i.imgur.com/47srahM.jpg', 
 'https://i.imgur.com/tFf1m5m.jpg', 
