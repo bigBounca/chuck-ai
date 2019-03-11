@@ -122,7 +122,7 @@ function bruhCommand(message) {
 			dispatcher.on('finish', () => {
 				dispatcher.destroy();
 			});
-		});
+		}).catch(console.error);
 	} else {
 		message.reply('Join voice pussy!');
 	}
