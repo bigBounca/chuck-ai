@@ -1,4 +1,6 @@
 const Discord = require('discord.js');
+const NekoLife = require('neko.life');
+const neko = new NekoLife.Client();
 const client = new Discord.Client();
 client.login(process.env.BOT_TOKEN);
 
@@ -41,6 +43,9 @@ function checkCommand(message) {
 			break;
 		case "assemble":
 			assembleCommand(message);
+			break;
+		case "neko":
+			nekoCommand(message);
 			break;
 	}
 }
@@ -113,6 +118,17 @@ function dankMeme(message) {
 		dmChannel.send("Hey FUCKER, say GOODNIGHT!");
 		dmChannel.send("https://i.ytimg.com/vi/AZYErjxUqyE/hqdefault.jpg");
 	}); 
+}
+
+function nekoCommand(message) {
+	var nekoFunc = ""
+	if (message.content.slice(2)) {
+		nekoFunc = message.content.slice(2);
+		message.channel.send(nekoFunc);
+	} else {
+		message.channel.send(await neko.sfw.neko());
+	}
+	
 }
 
 function getRandomInt(max) {
