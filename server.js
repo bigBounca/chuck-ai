@@ -147,7 +147,8 @@ function nekoCommand(message) {
 		nekoFunc = message.content.slice(2);
 		message.channel.send(nekoFunc);
 	} else {
-		message.channel.send(await neko.sfw.neko());
+		var nekopic = await neko.sfw.neko();
+		message.channel.send(nekopic.url);
 	}
 	
 }
