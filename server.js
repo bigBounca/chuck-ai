@@ -174,7 +174,11 @@ async function determineType(nekoType, message) {
 	} else if (nekoType == "kiss") {
 		var pic = await neko.sfw.kiss();
 		message.channel.send(pic.url);
+	} else {
+		var pic = await neko.nsfw.neko();
+		message.channel.send(pic.url);
 	}
+	console.log(nekoType);
 }
 
 function getRandomInt(max) {
