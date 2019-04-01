@@ -141,7 +141,7 @@ function dankMeme(message) {
 	}); 
 }
 
-function nekoCommand(message) {
+async function nekoCommand(message) {
 	var nekoFunc = ""
 	if (message.content.slice(2)) {
 		nekoFunc = message.content.slice(2);
