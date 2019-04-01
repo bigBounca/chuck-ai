@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const NekoLife = require('nekos.life');
-const neko = new NekoLife.Client();
+const neko = new NekoLife();
 const client = new Discord.Client();
 const ytdl = require('ytdl-core');
 //process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
