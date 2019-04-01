@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const NekoLife = require('neko.life');
+const NekoLife = require('nekos.life');
 const neko = new NekoLife.Client();
 const client = new Discord.Client();
 const ytdl = require('ytdl-core');
