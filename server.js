@@ -142,15 +142,18 @@ function dankMeme(message) {
 }
 
 async function nekoCommand(message) {
-	var nekoFunc = ""
-	if (message.content.slice(2)) {
-		nekoFunc = message.content.slice(2);
+	/*
+	var index = message.content.indexOf(" ");
+	var nekoFunc = message.content.substr(index + 1);
+	if (-) {
+		
 		message.channel.send(nekoFunc);
 	} else {
 		var nekopic = await neko.sfw.neko();
 		message.channel.send(nekopic.url);
-	}
-	
+	} */
+	var nekopic = await neko.sfw.neko();
+	message.channel.send(nekopic.url);
 }
 
 function getRandomInt(max) {
