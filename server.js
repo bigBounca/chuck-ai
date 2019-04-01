@@ -142,18 +142,39 @@ function dankMeme(message) {
 }
 
 async function nekoCommand(message) {
-	/*
 	var index = message.content.indexOf(" ");
-	var nekoFunc = message.content.substr(index + 1);
-	if (-) {
-		
-		message.channel.send(nekoFunc);
+	if (index != -1) {
+		var nekoFunc = message.content.substr(index + 1);
+		determineType(nekoFunc, message);
 	} else {
 		var nekopic = await neko.sfw.neko();
 		message.channel.send(nekopic.url);
-	} */
-	var nekopic = await neko.sfw.neko();
-	message.channel.send(nekopic.url);
+	}
+}
+
+async function determineType(nekoType, message) {
+	if(nekoType === "neko") {
+		var pic = await neko.nsfw.neko();
+		message.channel.send(pic.url);
+	} else if (nekoType === "hentai") {
+		var pic = await neko.nsfw.hentai();
+		message.channel.send(pic.url);
+	} else if (nekoType === "trap") {
+		var pic = await neko.nsfw.trap();
+		message.channel.send(pic.url);
+	} else if (nekoType === "cumsluts") {
+		var pic = await neko.nsfw.cumsluts();
+		message.channel.send(pic.url);
+	} else if (nekoType === "smug") {
+		var pic = await neko.sfw.smug();
+		message.channel.send(pic.url);
+	} else if (nekoType === "gif") {
+		var pic = await neko.sfw.nekoGif();
+		message.channel.send(pic.url);
+	} else if (nekoType == "kiss") {
+		var pic = await neko.sfw.kiss();
+		message.channel.send(pic.url);
+	}
 }
 
 function getRandomInt(max) {
