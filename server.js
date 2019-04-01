@@ -142,6 +142,7 @@ function dankMeme(message) {
 }
 
 async function nekoCommand(message) {
+	/*
 	var rn = getRandomInt(1);
 	if (rn != 1) {
 		var nekopic = await neko.nsfw.neko();
@@ -150,6 +151,9 @@ async function nekoCommand(message) {
 		var nekopic = await neko.sfw.neko();
 		message.channel.send(nekopic.url);
 	}
+	*/
+	var nekopic = await neko.sfw.neko();
+	message.channel.send(nekopic.url);
 }
 
 function getRandomInt(max) {
